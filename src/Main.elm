@@ -1,3 +1,5 @@
+import MyMod.HaskellLike exposing (..)
+
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.App as Html
@@ -8,12 +10,14 @@ import Components.Hello exposing ( hello )
 
 
 -- APP
+main : Program Never
 main =
   Html.beginnerProgram { model = model, view = view, update = update }
 
 
 -- MODEL
 type alias Model = Int
+model : Model
 model = 0
 
 
@@ -38,17 +42,19 @@ view model =
     [ class "mt-palette-accent", style styles.wrapper ]
     [ hello model
     ,  p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ]
+    ,  p [] [text "poe"]
     ,  button [ class "mt-button-sm", onClick Increment ] [ text "FTW!" ]
-    ,  img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
+    ,  img [ src "img/suzu.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
     ]
 
+type alias Wrapper = List(String, String)
 
+wrapper : Wrapper
+wrapper = [ ( "padding-top", "10px" )
+          , ( "padding-bottom", "20px" )
+          , ( "text-align", "center" )
+          ]
+          
 -- CSS STYLES
-styles =
-  {
-    wrapper =
-      [ ( "padding-top", "10px" )
-      , ( "padding-bottom", "20px" )
-      , ( "text-align", "center" )
-      ]
-  }
+styles : {wrapper: Wrapper}
+styles = {wrapper = wrapper}
