@@ -4,5 +4,5 @@ set -eu
 cd ./src/test/
 
 elm-package install -y
-elm-make TestMain.elm --output=test.js --yes
-node test.js
+elm-make TestMain.elm --output=../../tmp/test.js --yes
+node ../../tmp/test.js
