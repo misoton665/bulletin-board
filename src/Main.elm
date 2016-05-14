@@ -47,6 +47,8 @@ view model =
     ,  img [ src "img/suzu.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
     ]
 
+
+-- CSS STYLES
 type alias Wrapper = List(String, String)
 
 wrapper : Wrapper
@@ -54,7 +56,6 @@ wrapper = [ ( "padding-top", "10px" )
           , ( "padding-bottom", "20px" )
           , ( "text-align", "center" )
           ]
-          
--- CSS STYLES
+
 styles : {wrapper: Wrapper}
 styles = {wrapper = wrapper}

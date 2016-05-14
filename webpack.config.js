@@ -68,7 +68,8 @@ if ( TARGET_ENV === 'development' ) {
             'style-loader',
             'css-loader',
             'postcss-loader',
-            'sass-loader'
+            'sass-loader',
+            'font-loader'
           ]
         }
       ]
@@ -97,7 +98,8 @@ if ( TARGET_ENV === 'production' ) {
           loader: ExtractTextPlugin.extract( 'style-loader', [
             'css-loader',
             'postcss-loader',
-            'sass-loader'
+            'sass-loader',
+            'font-loader'
           ])
         }
       ]
