@@ -6,9 +6,11 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import String
 
+import Components.Model exposing (..)
+
 -- hello component
-hello : Int -> Html a
-hello model =
+hello : Model -> Html a
+hello (Model value) =
   div
     [ class "mt-h2" ]
-    [ text ( "Hello, World" ++ ( String.repeat model $ "!" ) ) ]
+    [ text ( "Hello, World" ++ ( String.repeat value $ "!" ) ) ]

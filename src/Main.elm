@@ -1,66 +1,11 @@
-import MyMod.HaskellLike exposing (..)
-
-import Html exposing (..)
-import Html.Attributes exposing (..)
 import Html.App as Html
-import Html.Events exposing ( onClick )
 
 -- component import example
-import Components.Hello exposing ( hello )
-
+import Components.Model exposing (..)
+import Components.View exposing (..)
+import Components.Update exposing (..)
 
 -- APP
 main : Program Never
 main =
-  Html.beginnerProgram { model = model, view = view, update = update }
-
-
--- MODEL
-type alias Model = Int
-model : Model
-model = 0
-
-
--- UPDATE
-type Msg = NoOp | Increment
-
-update : Msg -> Model -> Model
-update msg model =
-  case msg of
-    NoOp -> model
-    Increment -> model + 1
-
-
--- VIEW
--- Examples of:
--- 1)  an externally defined component ('hello', takes 'model' as arg)
--- 2a) styling through CSS classes (external stylesheet)
--- 2b) styling using inline style attribute (two variants)
-view : Model -> Html Msg
-view model =
-  div
-    [ class "mt-palette-accent", style styles.wrapper ]
-    $ flat [
-      [ hello model,
-        p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ],
-        p [] [text "poe"]
-      ],
-      List.repeat 3 $ p [] [text "rep"],
-      [
-        button [ class "mt-button-sm", onClick Increment ] [ text "FTW!" ],
-        img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
-      ]
-    ]
-
-
--- CSS STYLES
-type alias Wrapper = List(String, String)
-
-wrapper : Wrapper
-wrapper = [ ( "padding-top", "10px" )
-          , ( "padding-bottom", "20px" )
-          , ( "text-align", "center" )
-          ]
-
-styles : {wrapper: Wrapper}
-styles = {wrapper = wrapper}
+  Html.beginnerProgram { model = initialModel, view = view, update = update }
