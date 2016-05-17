@@ -1,9 +1,8 @@
 import Html.App as Html
 
--- component import example
-import Components.Model exposing (..)
-import Components.View exposing (..)
-import Components.Update exposing (..)
+import Components.Model exposing (initialModel)
+import Components.View exposing (view)
+import Components.Update exposing (update)
 
 -- APP
 main : Program Never

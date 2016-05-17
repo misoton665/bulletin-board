@@ -4,8 +4,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing ( onClick )
 
-import MyMod.HaskellLike exposing (..)
-
 import Components.Model exposing (Model(..))
 import Components.Update exposing (Message(..))
 import Components.Hello exposing (..)
@@ -19,12 +17,12 @@ view : Model -> Html Message
 view model =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
-    <| flat [
+    <| List.concat [
       [ hello model,
         p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ],
         p [] [text "poe"]
       ],
-      List.repeat 3 $ p [] [text "rep"],
+      List.repeat 3 <| p [] [text "rep"],
       [
         button [ class "mt-button-sm", onClick Increment ] [ text "FTW!" ],
         img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
