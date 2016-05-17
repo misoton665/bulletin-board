@@ -2,5 +2,5 @@
 require( './styles/app.css' );
 require('bootstrap');
 
-var Elm = require( './Main' );
-Elm.Main.embed( document.getElementById( 'main' ) );
+var MainApp = require( './Main' );
+MainApp.Main.embed( document.getElementById( 'main' ) );

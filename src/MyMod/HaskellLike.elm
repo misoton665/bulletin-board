@@ -11,3 +11,6 @@ zipWith = List.map2
 
 foldl : (a -> b -> a) -> a -> List b -> a
 foldl f e xs = List.foldl (flip f) e xs
+
+flat : List(List a) -> List a
+flat = List.concat

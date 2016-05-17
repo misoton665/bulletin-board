@@ -41,14 +41,14 @@ view model =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
     $ flat [
-      [ hello model,
-        p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ],
-        p [] [text "poe"]
-      ],
-      List.repeat 3 $ p [] [text "rep"],
-      [
-        button [ class "mt-button-sm", onClick Increment ] [ text "FTW!" ],
-        img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
+      [  hello model
+      ,  p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ]
+      ,  p [] [text "poe"] 
+      ], List.repeat 3 $ p [] [text "rep"]
+      , [
+         a [href "./signup.html"] [text "signup"]
+      ,  button [ class "mt-button-sm", onClick Increment ] [ text "FTW!" ]
+      ,  img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
       ]
     ]
 
