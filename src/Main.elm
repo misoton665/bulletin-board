@@ -1,8 +1,9 @@
 import Html.App as Html
 
-import Components.Model exposing (initialModel)
-import Components.View exposing (view)
-import Components.Update exposing (update)
+-- MVC
+import Components.Model.Model exposing (initialModel)
+import Components.View.View exposing (view)
+import Components.Update.Update exposing (update)
 
 -- APP
 main : Program Never
