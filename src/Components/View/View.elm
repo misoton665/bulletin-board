@@ -8,6 +8,7 @@ import Html.Events exposing ( onClick )
 
 import Components.Model.Model as M exposing (Model(..))
 import Components.Update.Update as U exposing (Message(..))
+import Components.View.PageHeaderView exposing (pageHeader)
 import Components.View.Hello as Hello
 
 -- VIEW
@@ -20,10 +21,11 @@ view model =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
     <| L.concat [
-      [ Hello.hello model,
+      [ pageHeader model,
+        Hello.hello model,
         p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ],
         p [] [text "poe"]
-      ],
+      ], 
       L.repeat 3 <| p [] [text "rep"],
       [
         button [ class "mt-button-sm", onClick U.Increment ] [ text "FTW!" ],
