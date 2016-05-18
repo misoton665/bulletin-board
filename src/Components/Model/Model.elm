@@ -1,4 +1,4 @@
-module Components.Model.Model exposing (Model, initialModel)
+module Components.Model.Model exposing (Model(..), initialModel)
 
 type Model = Model Int
 
