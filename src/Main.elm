@@ -9,3 +9,4 @@ import Components.Update.Update exposing (update)
 main : Program Never
 main =
   Html.beginnerProgram { model = initialModel, view = view, update = update }
+  

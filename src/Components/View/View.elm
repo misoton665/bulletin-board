@@ -7,7 +7,7 @@ import Html.Attributes exposing (class, style, src)
 import Html.Events exposing ( onClick )
 
 import Components.Model.Model as M exposing (Model(..))
-import Components.Update.Update as U exposing (Message(..))
+import Components.Update.Update as U exposing (..)
 import Components.View.PageHeaderView exposing (pageHeader)
 import Components.View.Hello as Hello
 
@@ -16,7 +16,7 @@ import Components.View.Hello as Hello
 -- 1)  an externally defined component ('hello', takes 'model' as arg)
 -- 2a) styling through CSS classes (external stylesheet)
 -- 2b) styling using inline style attribute (two variants)
-view : M.Model -> Html U.Message
+view : M.Model -> Html (U.Message)
 view model =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
@@ -28,7 +28,7 @@ view model =
       ], 
       L.repeat 3 <| p [] [text "rep"],
       [
-        button [ class "mt-button-sm", onClick U.Increment ] [ text "FTW!" ],
+        button [ class "mt-button-sm", onClick <| U.makeLocalMessage "hoge" "fuga" ] [ text "FTW!" ],
         img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
       ]
     ]
