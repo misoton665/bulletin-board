@@ -22,10 +22,19 @@ type alias Model =
 
 
 initialModel : Model
-initialModel = {comments = initialComments, commentField = initialCommentField}
+initialModel =
+  { comments = initialComments
+  , commentField = initialCommentField
+  }
+
 
 initialComments : List Comment
-initialComments = []
+initialComments =
+  []
+
 
 initialCommentField : CommentField
-initialCommentField = {author = "", body = ""}
+initialCommentField =
+  { author = ""
+  , body = ""
+  }

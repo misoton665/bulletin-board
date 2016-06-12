@@ -38,8 +38,14 @@ submission model field =
   if field.author == "" || field.body == "" then
     model
   else
-    {model | comments = field :: model.comments, commentField = changeAuthor M.initialCommentField field.author}
+    { model |
+      comments = field :: model.comments
+    , commentField = changeAuthor M.initialCommentField field.author
+    }
 
 
 changeAuthor : M.CommentField -> String -> M.CommentField
-changeAuthor field author = {field| author = author}
+changeAuthor field author =
+  { field |
+    author = author
+  }

@@ -18,13 +18,12 @@ view model =
       pageHeader model,
       commentField model,
       button [ class "mt-button-sm", onClick U.Submission ] [ text "Submit!" ],
-      Comment.toHtmlFromList model.comments
+      comments model.comments
     ]
 
 
-toComment : M.CommentField -> Comment.Comment
-toComment cf =
-  {author = cf.author, body = cf.body}
+comments : List Comment.Comment -> Html (U.Message)
+comments = Comment.toHtmlFromList
 
 
 commentField : M.Model -> Html (U.Message)

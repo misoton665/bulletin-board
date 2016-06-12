@@ -9,6 +9,7 @@ titleStr : String
 titleStr =
   "Bulletin Board"
 
+
 title : Html U.Message
 title =
   text titleStr
