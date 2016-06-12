@@ -28,7 +28,7 @@ view model =
       ], 
       L.repeat 3 <| p [] [text "rep"],
       [
-        button [ class "mt-button-sm", onClick <| U.makeLocalMessage "hoge" "fuga" ] [ text "FTW!" ],
+        button [ class "mt-button-sm", onClick U.NoMessage ] [ text "FTW!" ],
         img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
       ]
     ]
