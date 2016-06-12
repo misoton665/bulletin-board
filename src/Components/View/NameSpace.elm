@@ -5,7 +5,7 @@ import Html exposing (Html, text)
 import Components.Update.Update as U exposing (Message(..))
 
 titleStr : String
-titleStr = "Lab Activity Box -> LAB"
+titleStr = "Bulletin Board"
 
 title : Html U.Message
 title = text titleStr
