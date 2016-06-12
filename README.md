@@ -1,11 +1,11 @@
-# Lab Activity Box [Front]
+# Bulletin Board
 
-## Outline
+## Usage(test)
 
-- Activity Management
-- Web Service Connection (e.g. GitHub, Evernode, GoogleCalendar, etc..)
-- Weekly Report Submission
-- Registered Material Searching
+```
+npm install
+npm start
+```
 
 ## Components
 
