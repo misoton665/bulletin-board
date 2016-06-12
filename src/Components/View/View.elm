@@ -36,13 +36,13 @@ editBody : M.CommentField -> String -> U.Message
 editBody commentField body = U.ChangeView <| U.CommentField {commentField | body = body}
 
 -- CSS STYLES
-type alias Wrapper = List(String, String)
+type alias Style = List(String, String)
 
-wrapper : Wrapper
+wrapper : Style
 wrapper = [ ( "padding-top", "10px" )
           , ( "padding-bottom", "20px" )
           , ( "text-align", "center" )
           ]
 
-styles : {wrapper: Wrapper}
+styles : {wrapper: Style}
 styles = {wrapper = wrapper}
