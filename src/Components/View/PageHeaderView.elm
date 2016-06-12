@@ -4,7 +4,7 @@ import Html exposing (Html, div, h1, text)
 -- import Html.Attributes exposing (..)
 -- import Html.Events exposing (..)
 
-import Components.Model.Model as M exposing (Model(..))
+import Components.Model.Model as M exposing (Model)
 import Components.Update.Update as U exposing (Message(..))
 
 import Components.View.NameSpace as Name

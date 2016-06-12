@@ -1,37 +1,39 @@
 module Components.View.View exposing (view)
 
-import List as L
-
 import Html exposing (Html, div, p, text, button, img, input)
-import Html.Attributes exposing (class, style, src, type', placeholder)
-import Html.Events exposing ( onClick )
+import Html.Attributes exposing (class, style, src, type', placeholder, value)
+import Html.Events exposing ( onClick, onInput )
 
 import Components.Application.Comment as Comment exposing (Comment)
-import Components.Model.Model as M exposing (Model(..))
+import Components.Model.Model as M exposing (Model)
 import Components.Update.Update as U exposing (..)
 import Components.View.PageHeaderView exposing (pageHeader)
 
--- VIEW
--- Examples of:
--- 1)  an externally defined component ('hello', takes 'model' as arg)
--- 2a) styling through CSS classes (external stylesheet)
--- 2b) styling using inline style attribute (two variants)
 view : M.Model -> Html (U.Message)
-view (M.Model comments) =
+view model =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
     [
-      pageHeader <| Model comments,
-      commentField <| M.Model comments,
-      button [ class "mt-button-sm", onClick <| U.Submission {author = "miso", body = "poe"} ] [ text "Submit!" ],
-      Comment.toHtmlFromList comments
+      pageHeader model,
+      commentField model,
+      button [ class "mt-button-sm", onClick U.Submission ] [ text "Submit!" ],
+      Comment.toHtmlFromList model.comments
     ]
 
+toComment : M.CommentField -> Comment.Comment
+toComment cf = {author = cf.author, body = cf.body}
+
 commentField : M.Model -> Html (U.Message)
-commentField model = div [] [
-    input [type' "text", placeholder "author"] [],
-    input [type' "text", placeholder "comment"] []
+commentField {commentField} = div [] [
+    input [type' "text", placeholder "author", onInput <| editAuthor commentField] [],
+    input [type' "text", placeholder "comment", value commentField.body, onInput <| editBody commentField] []
   ]
+
+editAuthor : M.CommentField -> String -> U.Message
+editAuthor commentField author = U.ChangeView <| U.CommentField {commentField | author = author}
+
+editBody : M.CommentField -> String -> U.Message
+editBody commentField body = U.ChangeView <| U.CommentField {commentField | body = body}
 
 -- CSS STYLES
 type alias Wrapper = List(String, String)
