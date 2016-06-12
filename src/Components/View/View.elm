@@ -21,12 +21,10 @@ view : M.Model -> Html (U.Message)
 view (M.Model comments) =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
-    <| L.concat [
-      [ pageHeader <| Model comments ], 
-      [ Comment.toHtmlFromList comments ],
-      [
-        button [ class "mt-button-sm", onClick <| U.Submission {author = "miso", body = "poe"} ] [ text "FTW!" ]
-      ]
+    [
+      pageHeader <| Model comments,
+      button [ class "mt-button-sm", onClick <| U.Submission {author = "miso", body = "poe"} ] [ text "Submit!" ],
+      Comment.toHtmlFromList comments
     ]
 
 -- CSS STYLES
