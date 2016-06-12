@@ -6,6 +6,7 @@ import Html exposing (Html, div, p, text, button, img)
 import Html.Attributes exposing (class, style, src)
 import Html.Events exposing ( onClick )
 
+import Components.Application.Comment as Comment exposing (Comment)
 import Components.Model.Model as M exposing (Model(..))
 import Components.Update.Update as U exposing (..)
 import Components.View.PageHeaderView exposing (pageHeader)
@@ -17,19 +18,14 @@ import Components.View.Hello as Hello
 -- 2a) styling through CSS classes (external stylesheet)
 -- 2b) styling using inline style attribute (two variants)
 view : M.Model -> Html (U.Message)
-view model =
+view (M.Model comments) =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
     <| L.concat [
-      [ pageHeader model,
-        Hello.hello model,
-        p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ],
-        p [] [text "poe"]
-      ], 
-      L.repeat 3 <| p [] [text "rep"],
+      [ pageHeader <| Model comments ], 
+      [ Comment.toHtmlFromList comments ],
       [
-        button [ class "mt-button-sm", onClick U.NoMessage ] [ text "FTW!" ],
-        img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
+        button [ class "mt-button-sm", onClick <| U.Submission {author = "miso", body = "poe"} ] [ text "FTW!" ]
       ]
     ]
 
