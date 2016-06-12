@@ -1,6 +1,8 @@
 module Components.Model.Model exposing (Model(..), initialModel)
 
-type Model = Model Int
+import Components.Application.Comment exposing (Comment)
+
+type Model = Model (List Comment)
 
 initialModel : Model
-initialModel = Model 0
+initialModel = Model []
